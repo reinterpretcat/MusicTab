@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>MusicTab Mobile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        
+		<link rel="stylesheet" type="text/css" href="css/mobile/jquery.mobile.structure-1.1.1.min.css">
+		<link rel="stylesheet" type="text/css" href="css/mobile/jquery.mobile.theme-1.1.1.min.css">
+		<link rel="stylesheet" type="text/css" href="css/mobile/jquery.mobile-1.1.1.min.css">
+		
+		<!-- sandbox-specific files -->
+		<script src="js/sandbox/desktop/jquery-1.10.2.min.js"></script>
+		<script src="js/sandbox/mobile/jquery.mobile-1.3.2.min.js"></script>
+		<script src="js/sandbox/mobile/mobile-jq.js"></script>
+		
+		
+				 <script src="js/utils/core.js"></script>
+        <script src="js/stave/vexflow/header.js"></script>
+        <script src="js/stave/vexflow/vex.js"></script>
+        <script src="js/stave/vexflow/flow.js"></script>
+        <script src="js/stave/vexflow/fraction.js"></script>
+        <script src="js/stave/vexflow/tables.js"></script>
+        <script src="js/stave/vexflow/fonts/vexflow_font.js"></script>
+        <script src="js/stave/vexflow/glyph.js"></script>
+        <script src="js/stave/vexflow/stave.js"></script>
+        <script src="js/stave/vexflow/staveconnector.js"></script>
+        <script src="js/stave/vexflow/tabstave.js"></script>
+        <script src="js/stave/vexflow/tickcontext.js"></script>
+        <script src="js/stave/vexflow/tickable.js"></script>
+        <script src="js/stave/vexflow/note.js"></script>
+        <script src="js/stave/vexflow/barnote.js"></script>
+        <script src="js/stave/vexflow/ghostnote.js"></script>
+        <script src="js/stave/vexflow/stavenote.js"></script>
+        <script src="js/stave/vexflow/tabnote.js"></script>
+        <script src="js/stave/vexflow/beam.js"></script>
+        <script src="js/stave/vexflow/voice.js"></script>
+        <script src="js/stave/vexflow/voicegroup.js"></script>
+        <script src="js/stave/vexflow/modifier.js"></script>
+        <script src="js/stave/vexflow/modifiercontext.js"></script>
+        <script src="js/stave/vexflow/accidental.js"></script>
+        <script src="js/stave/vexflow/dot.js"></script>
+        <script src="js/stave/vexflow/formatter.js"></script>
+        <script src="js/stave/vexflow/stavetie.js"></script>
+        <script src="js/stave/vexflow/tabtie.js"></script>
+        <script src="js/stave/vexflow/tabslide.js"></script>
+        <script src="js/stave/vexflow/bend.js"></script>
+        <script src="js/stave/vexflow/vibrato.js"></script>
+        <script src="js/stave/vexflow/annotation.js"></script>
+        <script src="js/stave/vexflow/articulation.js"></script>
+        <script src="js/stave/vexflow/tuning.js"></script>
+        <script src="js/stave/vexflow/stavemodifier.js"></script>
+        <script src="js/stave/vexflow/keysignature.js"></script>
+        <script src="js/stave/vexflow/timesignature.js"></script>
+        <script src="js/stave/vexflow/clef.js"></script>
+        <script src="js/stave/vexflow/music.js"></script>
+        <script src="js/stave/vexflow/keymanager.js"></script>
+        <script src="js/stave/vexflow/renderer.js"></script>
+        <script src="js/stave/vexflow/raphaelcontext.js"></script>
+        <script src="js/stave/vexflow/stavevolta.js"></script>
+        <script src="js/stave/vexflow/staverepetition.js"></script>
+        <script src="js/stave/vexflow/stavebarline.js"></script>
+        <script src="js/stave/vexflow/stavesection.js"></script>
+        <script src="js/stave/vexflow/stavehairpin.js"></script>
+        <script src="js/stave/vexflow/stavetempo.js"></script>
+        <script src="js/stave/vexflow/tremolo.js"></script>
+        <script src="js/stave/vexflow/tuplet.js"></script>
+        <script src="js/stave/vexflow/boundingbox.js"></script>
+        <script src="js/stave/vexflow/textnote.js"></script>
+		<script src="js/stave/vexflow/tabrestnote.js"></script>
+		
+        <script src="js/stave/context.js"></script> 
+		<script src="js/stave/helper.js"></script>
+        <script src="js/stave/view.js"></script> 
+        <script src="js/stave/paginator.js"></script> 
+		
+        <script src="js/tablatures/track.js"></script>
+        <script src="js/tablatures/parsers/alphaTab.js"></script>
+		<script src="js/tablatures/adapters/TabAdapter.js"></script>
+        <script src="js/tablatures/adapters/alphaTabAdapter.js"></script>
+        <script src="js/tablatures/adapters/ugTabAdapter.js"></script>
+        <script src="js/utils/filereader.js"></script>
+		<script src="js/tablatures/tabFactory.js"></script>
+		
+		
+    </head>
+    <body>
+        <h1 id="title">Guitar tabs viewer</h1>
+        <div id="tags">
+            tab, guitarpro
+        </div>
+        <p id="shortdesc">
+            Opens guitar pro tabs on your mobile device
+        </p>
+
+        <div data-role="page" id="mappage">
+            <div data-role="content">
+			    <div id="map"></div>
+            </div>
+
+            <div data-role="footer">
+				<a href="#" id="openfile" data-icon="search" data-role="button">Open Tab</a>
+				<a href="#searchpage" data-icon="search" data-role="button">Search</a>
+				<a href="#layerspage" data-icon="layers" data-role="button">Settings</a>
+				<!--<a href="#" id="locate" data-icon="locate" data-role="button">Settings</a>-->
+            </div>
+            <div id="navigation" data-role="controlgroup" data-type="vertical">
+            <a href="#" data-role="button" data-icon="plus" id="plus"
+                data-iconpos="notext"></a>
+            <a href="#" data-role="button" data-icon="minus" id="minus"
+                data-iconpos="notext"></a>
+            </div>
+        </div>
+	
+        <div data-role="page" id="searchpage">
+            <div data-role="header">
+            <h1>Search</h1>
+            </div>
+            <div data-role="fieldcontain">
+            <input type="search" name="query" id="query"
+                    value="" placeholder="Search for places"
+                    autocomplete="off"/>
+            </div>
+            <ul data-role="listview" data-inset="true" id="search_results"></ul> 
+        </div>
+		
+		<div data-role="page" id="layerspage">
+            <div data-role="header">
+				<h1>Settings</h1>
+				</div>
+				<div data-role="content">
+				<ul data-role="listview" data-inset="true" data-theme="d" data-dividertheme="c" id="layerslist">
+				</ul>
+            </div>
+        </div>
+
+        <!--<div id="popup" data-role="dialog">
+            <div data-position="inline" data-theme="d" data-role="header">
+                <h1>Settings</h1>
+            </div>
+            <div data-theme="c" data-role="content">
+                <ul id="details-list" data-role="listview">
+                </ul>
+            </div>
+        </div>-->
+<input type="file" id="files" name="file" />
+		<script>
+		
+		var height = $(document).height() - 40;
+		var width = $(document).width() - 40;
+		var scale = 0.8;
+		var views;
+
+		var context = new MusicTab.Stave.Context({
+							height: height,
+							width: width,
+							scale: scale,
+							placeHolderId: "map",
+							tabDivClass:"vex-tabdiv"
+						});
+		var staveHelper = new MusicTab.Stave.Helper(context);
+		var paginator = new MusicTab.Stave.Paginator({
+            context: context,
+            staveHelper: staveHelper
+        });
+		function readBlob() {
+			var files = document.getElementById('files').files;
+			if (!files.length) {
+			  alert('Please select a file!');
+			  return;
+			}
+			
+			(new MusicTab.Utils.FileReader()).read(files[0], function(data){
+				MusicTab.Tablatures.TabFactory.create({
+					data:data, 
+					helper:staveHelper
+				}, 
+				function (tab) {
+					currtab = tab;
+					processTab(tab);
+				});
+			})
+	  }
+  
+	  $("#files").change(function(evt){
+			$('#body div').html('');
+			 readBlob();
+	  });
+           
+		function processTab(tab) {
+			// create tracks
+			var tracks = [];
+			for (var i = 0; i < tab.tracks.length; i++) {
+				tracks.push(new MusicTab.Tablatures.Track({
+					name: tab.tracks[i].name,
+					instrument: tab.tracks[i].instrument,
+					selected: tab.tracks[i].selected,
+					index: i
+				}));
+			}
+			//show tab
+			showTab(tab, 0);
+		}
+		
+		function showTab(tab, trackIndex){
+			var actualWidth = staveHelper.getActualWidth();
+			var linePerPage = staveHelper.getLinePerPage();
+			var measures = tab.tracks[trackIndex].measures;
+			var chunks = paginator.split(measures, actualWidth);
+			var pages = paginator.doPaging(chunks, linePerPage);
+			//insertTitle(tab, trackIndex);
+			views = paginator.insertPages(pages, tab.tracks[trackIndex]);
+		}
+		
+		</script>
+    </body>
+</html>

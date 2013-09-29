@@ -1,0 +1,72 @@
+/* charms */
+#charms {
+   background-color: #333;
+   position: fixed;
+   right: 0%;
+   width: 0%;
+   height: 100%;
+   padding: 0;
+    z-index: 9999;
+    opacity: .9;
+}
+   #charms .charms-section {
+      margin: 0 20px 20px 20px;
+   }
+   
+   #charm-box .charms-section {
+      margin: -20px 20px 20px 20px;
+   }
+   
+    .charms-header {
+      position: relative;
+      padding: 30px 0 0 0;
+   }
+      .charms-header a.backbutton  {
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      vertical-align: top;
+   }
+      #charms .charms-header h2 {
+         display: inline-block;
+                 margin-left: 6px;
+                 bottom:10px;
+      }
+         .backbutton img{
+                height: 40px;
+                width: 40px;
+            opacity: .3;
+        }
+     .backbutton img:hover{
+            opacity: 1;
+        }
+/* arrow*/
+div.charms-arrow {
+		position: fixed;
+        
+        z-index: 1001;
+        border: 10px solid transparent;
+        cursor: hand; cursor: pointer;
+        right: 4px;
+        top: 50%;
+        margin-top: -16px;
+        border-right: 16px solid white;
+
+        -webkit-transition: opacity 0.4s ease 0.4s; 
+           -moz-transition: opacity 0.4s ease 0.4s; 
+            -ms-transition: opacity 0.4s ease 0.4s; 
+             -o-transition: opacity 0.4s ease 0.4s; 
+                transition: opacity 0.4s ease 0.4s;
+}
+.charm-box {
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+    width: 40%;
+    height: 30%;
+    z-index: 9999;
+    background-color: #333;
+    display: none;
+    opacity: .95;
+}
